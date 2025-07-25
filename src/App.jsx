@@ -12,7 +12,7 @@ function App() {
   // Obtener el total sin filtros
   const obtenerTotalEmpresas = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/empresas");
+      const res = await axios.get("https://api-legasa.vercel.app/api/empresas");
       setTotalEmpresas(res.data.length);
     } catch (err) {
       console.error("Error al cargar el total de empresas:", err);
@@ -22,10 +22,10 @@ function App() {
   // Obtener empresas filtradas (o todas si no hay filtros)
   const obtenerEmpresas = async () => {
     try {
-      let url = "http://localhost:3000/api/empresas";
+      let url = "https://api-legasa.vercel.app/api/empresas";
       if (materiasSeleccionadas.length > 0) {
         const query = materiasSeleccionadas.join(",");
-        url = `http://localhost:3000/api/empresas/filtrar?materias=${query}`;
+        url = `https://api-legasa.vercel.app/api/empresas/filtrar?materias=${query}`;
       }
 
       const res = await axios.get(url);
@@ -73,14 +73,14 @@ function App() {
         onCambio={setMateriasSeleccionadas}
       />
 
-      {/* 👉 MOSTRAR CUENTA DE EMPRESAS */}
+      
       <div style={{ margin: "20px 0", fontWeight: "bold", fontSize: "1.8rem" }}>
         {materiasSeleccionadas.length === 0
           ? `Total de empresas: ${totalEmpresas}`
           : `Empresas que cumplen el filtro: ${empresas.length} de ${totalEmpresas}`}
       </div>
 
-      <div className="empresa-grid">
+      <div className="empresa-flex">
         {empresas.map((empresa, index) => {
           const nombre = empresa["Razon Social"] || "Desconocida";
           const color = asignarColor(nombre);
