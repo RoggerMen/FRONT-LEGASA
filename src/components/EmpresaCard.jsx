@@ -1,4 +1,4 @@
-import "./EmpresaCard.css";
+import "./empresaCard.css";
 
 function EmpresaCard({ empresa, color }) {
   const estiloTarjeta = {

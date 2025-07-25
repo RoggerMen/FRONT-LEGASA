@@ -1,4 +1,4 @@
-import "./CheckboxList.css";
+import "./checkboxList.css";
 
 function CheckboxList({ opciones, seleccionadas, onCambio }) {
   const toggleSeleccion = (materia) => {
