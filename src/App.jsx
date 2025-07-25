@@ -12,7 +12,7 @@ function App() {
   // Obtener el total sin filtros
   const obtenerTotalEmpresas = async () => {
     try {
-      const res = await axios.get("https://api-legasa.vercel.app/api/empresas");
+      const res = await axios.get("https://api-legasa-qu9e.vercel.app/api/empresas");
       setTotalEmpresas(res.data.length);
     } catch (err) {
       console.error("Error al cargar el total de empresas:", err);
@@ -22,10 +22,10 @@ function App() {
   // Obtener empresas filtradas (o todas si no hay filtros)
   const obtenerEmpresas = async () => {
     try {
-      let url = "https://api-legasa.vercel.app/api/empresas";
+      let url = "https://api-legasa-qu9e.vercel.app/api/empresas";
       if (materiasSeleccionadas.length > 0) {
         const query = materiasSeleccionadas.join(",");
-        url = `https://api-legasa.vercel.app/api/empresas/filtrar?materias=${query}`;
+        url = `https://api-legasa-qu9e.vercel.app/api/empresas/filtrar?materias=${query}`;
       }
 
       const res = await axios.get(url);
