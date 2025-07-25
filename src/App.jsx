@@ -25,7 +25,7 @@ function App() {
       let url = "https://api-legasa.vercel.app/api/empresas";
       if (materiasSeleccionadas.length > 0) {
         const query = materiasSeleccionadas.join(",");
-        url = `hthttps://api-legasa.vercel.app/api/empresas/filtrar?materias=${query}`;
+        url = `https://api-legasa.vercel.app/api/empresas/filtrar?materias=${query}`;
       }
 
       const res = await axios.get(url);
